@@ -1,12 +1,25 @@
 package com.example.android.architecture.blueprints.todoapp.statistics
 
+import com.example.android.architecture.blueprints.todoapp.data.Task
 import org.junit.Assert.*
 
-import org.junit.After
+import org.junit.Test
 
 class StatisticsUtilsTest {
 
-    @After
-    fun tearDown() {
+    @Test
+    fun getActiveAndCompletedStats_noCompleted_returnsHundredZero() {
+        // Create an active task
+        val tasks = listOf<Task>(
+                Task("The title", "Description of my task", isCompleted = false)
+        )
+
+        // Call your function
+        var result = getActiveAndCompletedStats(tasks)
+
+        // Check the result
+        assertEquals(result.activeTasksPercent, 100f)
+        assertEquals(result.completedTasksPercent, 0f)
     }
 }
+
