@@ -57,5 +57,31 @@ class StatisticsUtilsTest {
         assertThat(result.activeTasksPercent, `is`(60f))
     }
 
+    @Test
+    fun given_empty_task_list_then_completed_and_active_percentages_to_zero() {
+        // Create an empty task list
+        val tasks = emptyList<Task>()
+
+        // Call your function
+        var result = getActiveAndCompletedStats(tasks)
+
+        // Check the result using hamcrest
+        assertThat(result.completedTasksPercent, `is`(0f))
+        assertThat(result.activeTasksPercent, `is`(0f))
+    }
+
+    @Test
+    fun given_task_list_when_error_loading_tasks_then_completed_and_active_percentages_to_zero() {
+        // No tasks
+        val tasks = null
+
+        // Call your function
+        var result = getActiveAndCompletedStats(tasks)
+
+        // Check the result using hamcrest
+        assertThat(result.completedTasksPercent, `is`(0f))
+        assertThat(result.activeTasksPercent, `is`(0f))
+    }
+
 }
 
