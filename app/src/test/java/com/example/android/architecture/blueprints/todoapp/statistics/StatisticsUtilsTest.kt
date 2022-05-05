@@ -25,7 +25,7 @@ class StatisticsUtilsTest {
 
     @Test
     fun given_task_list_when_one_completed_and_no_active_tasks_then_hundred_and_zero_percentage() {
-        // Create an active task
+        // Create a completed task
         val tasks = listOf<Task>(
                 Task("The title", "Description of my task", isCompleted = true)
         )
@@ -40,7 +40,7 @@ class StatisticsUtilsTest {
 
     @Test
     fun given_task_list_when_two_completed_and_three_active_tasks_then_forty_and_sixty_percentage() {
-        // Create an active task
+        // Create 2 completed and 3 active tasks
         val tasks = listOf<Task>(
                 Task("The title", "Description of my task", isCompleted = true),
                 Task("The title 2", "Description of my task 2", isCompleted = false),
